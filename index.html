@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Flight Tracker App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Font for enhanced styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Enhanced Flight Tracker App</h1>
+        <nav>
+            <button onclick="showScreen('home-dashboard')">Home Dashboard</button>
+            <button onclick="showScreen('flight-info')">Flight Information</button>
+            <button onclick="showScreen('flight-details')">Flight Details</button>
+        </nav>
+    </header>
+    <main>
+        <!-- Home Dashboard Interface -->
+        <div id="home-dashboard" class="screen">
+            <input type="text" placeholder="Search by flight number or passenger name">
+            <div class="quick-buttons">
+                <button onclick="showScreen('flight-info')">My Flights</button>
+                <button onclick="alert('Redirecting to Amenities page...')">Amenities</button>
+                <button onclick="alert('Connecting to Emergency Help...')">Emergency Help</button>
+            </div>
+            <div id="ticker">Flight updates will appear here...</div>
+            <div id="notification-status" class="status-message"></div>
+        </div>
+
+        <!-- Flight Information Screen -->
+        <div id="flight-info" class="screen">
+            <h2>My Booked Flights</h2>
+            <ul>
+                <li>
+                    Flight AA123 - Airline: American Airlines - Gate: A1 - Departure: 10:00 AM - Status: On Time
+                    <button onclick="trackFlight('AA123')">Track Flight</button>
+                </li>
+                <li>
+                    Flight BA456 - Airline: British Airways - Gate: B2 - Departure: 11:00 AM - Status: Delayed
+                    <button onclick="trackFlight('BA456')">Track Flight</button>
+                </li>
+                <li>
+                    Flight DL789 - Airline: Delta Airlines - Gate: C3 - Departure: 12:00 PM - Status: Cancelled
+                    <button onclick="trackFlight('DL789')">Track Flight</button>
+                </li>
+                <li>
+                    Flight UA101 - Airline: United Airlines - Gate: D4 - Departure: 1:00 PM - Status: On Time
+                    <button onclick="trackFlight('UA101')">Track Flight</button>
+                </li>
+                <li>
+                    Flight EK202 - Airline: Emirates - Gate: E5 - Departure: 2:00 PM - Status: Delayed
+                    <button onclick="trackFlight('EK202')">Track Flight</button>
+                </li>
+            </ul>
+            <div id="geolocation-status" class="status-message"></div>
+        </div>
+
+        <!-- Flight Details Screen -->
+        <div id="flight-details" class="screen">
+            <h2>Flight Details</h2>
+            <p><strong>Flight Number:</strong> AA123</p>
+            <p><strong>Airline:</strong> American Airlines</p> <!-- New addition -->
+            <p><strong>Gate:</strong> A1</p>
+            <p><strong>Departure Time:</strong> 10:00 AM</p>
+            <p><strong>Arrival Time:</strong> 12:30 PM</p> <!-- New addition -->
+            <p><strong>Flight Duration:</strong> 2 hours 30 minutes</p> <!-- New addition -->
+            <p><strong>Baggage Claim Area:</strong> Carousel 5</p>
+            <p><strong>Delay Updates:</strong> No delays reported</p>
+            <p><strong>Baggage Allowance:</strong> 1 checked bag (50lbs max)</p> <!-- New addition -->
+            <p><strong>Passenger Information:</strong> John Doe, Seat 12A</p> <!-- New addition -->
+            <button onclick="getDirections()">Get Directions to Gate</button>
+            <button onclick="contactSupport()">Contact Support</button>
+            <div id="directions-status" class="status-message"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
